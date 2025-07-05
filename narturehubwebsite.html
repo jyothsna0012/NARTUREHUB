@@ -1,0 +1,474 @@
+<DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e6f2ff;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      header,
+      nav,
+      footer {
+        background-color: #84c5d3;
+        color: white;
+        padding: 15px;
+        text-align: center;
+      }
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      section {
+        padding: 20px;
+      }
+      .hidden {
+        display: none;
+      }
+      .chat-box {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background: #fff;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 10px;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+      .link-btn {
+        text-decoration: underline;
+        background: none;
+        color: blue;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+      .mood-btn {
+        font-size: 2rem;
+        cursor: pointer;
+        margin: 10px;
+        background: none;
+        border: none;
+        transition: border 0.3s ease;
+      }
+      .mood-selected {
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+      }
+      #timer-display {
+        font-size: 2rem;
+        margin: 10px 0;
+      }
+      #games-list ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #games-list ul li {
+        margin-bottom: 8px;
+      }
+      #musicSuggestion {
+        margin-top: 15px;
+        font-size: 1.2rem;
+      }
+      #musicSuggestion a {
+        color: #1db954;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .tips ul,
+      .advice ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+      .video-list iframe {
+        display: block;
+        margin: 10px auto;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Mental Health Companion</h1>
+    </header>
+
+    <nav>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('tools')">Self Help Tools</a>
+      <a onclick="showSection('stories')">Stories</a>
+      <a onclick="showSection('mentalHealthTips')">Mental Health Tips</a>
+      <a onclick="showSection('expertAdvice')">Expert Advice</a>
+      <a onclick="showSection('expertTalkVideos')">Expert Talks</a>
+      <a onclick="showSection('contact')">Contact</a>
+      <a onclick="showSection('login')">Login</a>
+      <a onclick="showSection('signup')">Sign Up</a>
+      <a onclick="showSection('dashboard')">Dashboard</a>
+      <a onclick="showSection('moodTracker')">Mood Tracker</a>
+      <a onclick="showSection('meditation')">Meditation</a>
+      <a onclick="showSection('games')">Lite Games</a>
+    </nav>
+
+    <section id="home">
+      <h2>Welcome to Your Mental Health Companion</h2>
+      <ul>
+        <h3>mental health daily care</h3>
+        <li>Practice gratitude daily</li>
+        <li>Spend time in nature</li>
+        <li>Keep a journal of your thoughts</li>
+        <li>Connect with supportive people</li>
+        <li>Take breaks and rest regularly</li>
+      </ul>
+    </section>
+
+    <section id="about" class="hidden">
+      <h2>About Us</h2>
+      <p>
+        <strong>Our Mission:</strong> To promote mental well-being through
+        accessible and compassionate digital support.
+      </p>
+      <p>
+        <strong>Our Vision:</strong> A world where mental health is valued,
+        supported, and prioritized just like physical health.
+      </p>
+    </section>
+<section id="tools" class="hidden">
+      <h2>Self Help Tools</h2>
+      <ul>
+        <li>
+          <strong>Meditation Guide:</strong> Close your eyes, breathe deeply,
+          and focus on each breath for 5 minutes.
+        </li>
+        <li>
+          <strong>Breathing Exercise:</strong> Inhale for 4 seconds,hold for 4
+          seconds, exhale for 4 seconds. Repeat 5 times.
+        </li>
+      </ul>
+    </section>
+
+    <section id="stories" class="hidden">
+      <h2>Stories</h2>
+      <h3>User Stories</h3>
+      <ul>
+        <li>
+          <a
+            href="https://www.reddit.com/r/mentalhealth/comments/1gdutm0/needing_to_hear_some_success_stories_from_someone/"
+            target="_blank"
+            >Mental Health Stories
+          </a>
+        </li>
+        <li>
+          <a href="https://www.reddit.com/r/mentalhealth/" target="_blank"
+            >Some Real Experience with Mental Health
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://thebetterindia.com/topics/mental-health/"
+            target="_blank"
+            >Personal stories from people living with anxiety, OCD,
+            depression</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section id="mentalHealthTips" class="hidden tips">
+      <h2>Mental Health Tips</h2>
+      <ul>
+        <li>Practice mindfulness and meditation daily.</li>
+        <li>Maintain a consistent sleep schedule.</li>
+        <li>Engage in physical activity regularly.</li>
+        <li>Connect with supportive friends and family.</li>
+        <li>Limit screen time and social media use.</li>
+      </ul>
+    </section>
+
+    <section id="expertAdvice" class="hidden advice">
+      <h2>Expert Advice</h2>
+      <ul>
+        <li>Seek help early if you notice prolonged sadness or anxiety.</li>
+        <li>Therapy is a safe space—don’t hesitate to consult a counselor.</li>
+        <li>
+          Develop coping strategies for stress like journaling or hobbies.
+        </li>
+        <li>Practice gratitude to shift focus to positive experiences.</li>
+        <li>Don’t self-diagnose; always talk to a licensed professional.</li>
+      </ul>
+    </section>
+
+    <section
+      id="expertTalkVideos"
+      class=" hidden videos"
+      style="padding: 2rem; background-color: #f9f9f9"
+    >
+      <h2 style="text-align: center">Expert Talks</h2>
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+        "
+      >
+        <iframe
+          width="300"
+          height="170"
+          src="https://www.youtube.com/embed/rkZl2gsLUp4"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          width="300"
+          height="170"
+          src="https://www.youtube.com/embed/yzm4gpAKrBk?si=s9eki4I0JeafnMN8"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          width="300"
+          height="170"
+          src="https://www.youtube.com/embed/gy1iH_Gxn0Q?si=sdUxrL4cfNGy2d9J"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="contact" class="hidden">
+      <h2>Contact Us</h2>
+      <p>
+        Email:
+        <a href="mailto:support@mentalhealthcompanion.com"
+          >support@mentalhealthcompanion.com</a
+        >
+      </p>
+      <p><strong>Book an Appointment:</strong></p>
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Your Email" />
+      <input type="text" placeholder="Preferred Date and Time" />
+      <button>Submit</button>
+    </section>
+
+    <section id="signup" class="hidden">
+      <h2>Create Account</h2>
+      <input type="text" placeholder="Username" id="signup-user" />
+      <input type="password" placeholder="Password" id="signup-pass" />
+      <button onclick="createAccount()">Create Account</button>
+    </section>
+
+    <section id="login" class="hidden">
+      <h2>Login</h2>
+      <input type="text" placeholder="Username" id="login-user" />
+      <input type="password" placeholder="Password" id="login-pass" />
+      <button onclick="login()">Login</button>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <h2>Welcome to Your Dashboard</h2>
+      <ul>
+        <li>
+          <button class="link-btn" onclick="showSection('chat')">
+            AI Chatbot
+          </button>
+        </li>
+        <li>
+          <a href="https://www.reddit.com/r/mentalhealth/" target="_blank"
+            >Join Community</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health"
+            target="_blank"
+            >Mental Health Tips</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section id="chat" class="hidden">
+      <h2>Talk to Your Mental Health Buddy</h2>
+      <div class="chat-box" id="chat-box"></div>
+      <input type="text" id="user-msg" placeholder="Type how you feel..." />
+      <button onclick="sendMessage()">Send</button>
+      <br /><br />
+      <button onclick="showSection('dashboard')">Back to Dashboard</button>
+    </section>
+
+    <section id="moodTracker" class="hidden">
+      <h2>Track Your Mood</h2>
+      <p>Select how you feel right now:</p>
+      <button class="mood-btn" onclick="selectMood(this, 'happy')">😊</button>
+      <button class="mood-btn" onclick="selectMood(this, 'sad')">😢</button>
+      <button class="mood-btn" onclick="selectMood(this, 'anxious')">😰</button>
+      <button class="mood-btn" onclick="selectMood(this, 'angry')">😡</button>
+      <button class="mood-btn" onclick="selectMood(this, 'calm')">😌</button>
+      <p id="moodResult"></p>
+      <div id="musicSuggestion"></div>
+    </section>
+    <section id="meditation" class="hidden">
+      <h2>Meditation Timer</h2>
+      <div id="timer-display">05:00</div>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="stopTimer()">Stop</button>
+      <button onclick="resetTimer()">Reset</button>
+    </section>
+
+    <section id="games" class="hidden">
+      <h2>Lite Games to Relax Your Mind</h2>
+      <ul>
+        <li>
+          <a href="https://www.solitaire.com/" target="_blank">Solitaire</a>
+        </li>
+        <li>
+          <a href="https://www.247mahjong.com/" target="_blank">Mahjong</a>
+        </li>
+        <li>
+          <a href="https://www.tetris.com/play-tetris" target="_blank"
+            >Tetris</a
+          >
+        </li>
+        <li>
+          <a href="https://quickdraw.withgoogle.com/" target="_blank"
+            >Quick Draw</a
+          >
+        </li>
+        <li>
+          <a href="https://www.typingclub.com/" target="_blank"
+            >Typing Practice</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <script>
+      function showSection(id) {
+        document
+          .querySelectorAll("section")
+          .forEach((section) => section.classList.add("hidden"));
+        document.getElementById(id).classList.remove("hidden");
+      }
+
+      function createAccount() {
+        const user = document.getElementById("signup-user").value;
+        const pass = document.getElementById("signup-pass").value;
+        if (user && pass) {
+          alert("Account created successfully!");
+          showSection("login");
+        } else {
+          alert("Please enter both username and password.");
+        }
+      }
+
+      function login() {
+        const user = document.getElementById("login-user").value;
+        const pass = document.getElementById("login-pass").value;
+        if (user && pass) {
+          alert("Welcome, " + user + "!");
+          showSection("dashboard");
+        } else {
+          alert("Please enter valid credentials.");
+        }
+      }
+
+      function sendMessage() {
+        const msg = document.getElementById("user-msg").value.trim();
+        const chatBox = document.getElementById("chat-box");
+        if (msg) {
+          chatBox.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+          let response = "I'm here for you.";
+          if (msg.toLowerCase().includes("sad"))
+            response = "It's okay to feel sad wanna share your thoughts.";
+          else if (msg.toLowerCase().includes("happy"))
+            response = "That's great to hear!";
+          chatBox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
+          chatBox.scrollTop = chatBox.scrollHeight;
+          document.getElementById("user-msg").value = "";
+        }
+      }
+
+      function selectMood(btn, mood) {
+        document
+          .querySelectorAll(".mood-btn")
+          .forEach((b) => b.classList.remove("mood-selected"));
+        btn.classList.add("mood-selected");
+        document.getElementById("moodResult").textContent =
+          "You are feeling " + mood + ".";
+
+        const playlists = {
+          happy: "37i9dQZF1DXdPec7aLTmlC",
+          sad: "37i9dQZF1DX7qK8ma5wgG1",
+          anxious: "37i9dQZF1DWU0ScTcjJBdj",
+          angry: "37i9dQZF1DX1tyCD9QhIWF",
+          calm: "37i9dQZF1DWUZ5bk6qqDSy",
+        };
+
+        document.getElementById(
+          "musicSuggestion"
+        ).innerHTML = `🎵 Try listening to <a href="https://open.spotify.com/playlist/${playlists[mood]}" target="_blank">this playlist</a> to match your mood.`;
+      }
+
+      let timer;
+      let timeLeft = 300;
+
+      function updateDisplay() {
+        const minutes = Math.floor(timeLeft / 60)
+          .toString()
+          .padStart(2, "0");
+        const seconds = (timeLeft % 60).toString().padStart(2, "0");
+        document.getElementById(
+          "timer-display"
+        ).textContent = `${minutes}:${seconds}`;
+      }
+
+      function startTimer() {
+        if (!timer) {
+          timer = setInterval(() => {
+            if (timeLeft > 0) {
+              timeLeft--;
+              updateDisplay();
+            } else {
+              clearInterval(timer);
+              timer = null;
+              alert("Meditation session complete.");
+            }
+          }, 1000);
+        }
+      }
+
+      function stopTimer() {
+        clearInterval(timer);
+        timer = null;
+      }
+
+      function resetTimer() {
+        stopTimer();
+        timeLeft = 300;
+        updateDisplay();
+      }
+
+      updateDisplay(); // Initial call
+    </script>
+
+    <footer>
+      <p>© 2025 Mental Health Companion | All rights reserved.</p>
+    </footer>
+  </body>
+</html>
