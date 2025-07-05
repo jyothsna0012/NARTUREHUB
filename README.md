@@ -41,7 +41,7 @@ A complete, accessible, and compassionate **mental health care companion** built
 
 - **HTML5**
 - **CSS3**
-- **Vanilla JavaScript**
+- **JavaScript**
 
 ## 🚀 How to Use
 
